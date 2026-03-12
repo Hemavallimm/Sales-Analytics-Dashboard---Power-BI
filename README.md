@@ -12,6 +12,8 @@ The dashboard enables stakeholders to:
 - Identify top-performing products
 - Understand regional sales contributions
 
+---
+
 ## Business Objective
 The objective of this project is to design a data-driven sales performance monitoring system that helps business decision-makers:
 
@@ -21,23 +23,58 @@ The objective of this project is to design a data-driven sales performance monit
 - Monitor year-to-date and yearly growth
 - Track average selling price trends
 
-## Dataset Information
-The dataset used in this project contains retail sales transaction data including:
+---
 
-- Date of transaction
-- Product name
+## Data Model
+The dataset structure consists of two main tables used for analysis in the Power BI dashboard.
+
+### Tables
+- **DateTable**
+- **SalesData**
+
+### Fields
+The **Sales Data** table contains the following analytical fields:
+- Date
+- Customer
+- Product
 - Category
-- Quantity sold
-- Sales amount
-- Cost
 - Region
+- Quantity
+- Sales
+- Cost
+These fields are used to calculate business KPIs and perform sales analysis.
 
-From these fields, multiple business metrics and KPIs were derived using DAX.
+### Measures
+The **Sales Data** table contains DAX measures created for analytical insights, including:
+
+- Avg Selling Price
+- Current Year Sales
+- Last Refresh
+- Last Year Sales
+- Profit
+- Profit Margin %
+- Region Profit Contribution %
+- Top Product
+- Total Sales (All)
+- Total Units Sold
+- YoY Growth %
+- YTD Sales
+
+### Date Hierarchy
+The **DateTable** contains calendar-related fields used for time-based analysis and filtering:
+- Date
+- Month
+- Month No
+- Year
+
+This table enables **time intelligence calculations** such as:
+- Year-over-Year growth
+- Year-to-Date sales
+- Current year vs last year comparisons
 
 ---
 
 ## Key KPIs & Metrics
-
 The dashboard includes the following analytical measures:
 
 | KPI | Description |
@@ -58,9 +95,7 @@ The dashboard includes the following analytical measures:
 ---
 
 ## DAX Measures Used
-
 The project uses several Power BI DAX functions including:
-
 - CALCULATE()
 - DIVIDE()
 - SUM()
@@ -77,9 +112,7 @@ These functions enable dynamic time intelligence calculations and KPI analysis.
 ---
 
 ## Dashboard Features
-
 Key visualizations included in the dashboard:
-
 - Sales trend over time
 - Region-wise sales analysis
 - Product performance comparison
@@ -88,7 +121,6 @@ Key visualizations included in the dashboard:
 - KPI summary cards for business metrics
 
 Interactive filters allow users to analyze data by:
-
 - Region
 - Product
 - Category
@@ -137,18 +169,17 @@ These insights support data-driven decision making for sales strategy.
 ```
 Sales-Analytics-Dashboard
 │
-├── SalesDashboard.pbix
+├── Dax Measures
 ├── dataset.csv
-├── dashboard_screenshot.png
-└── README.md
+├── README.md
+├── Sales_Performance_Dashboard.pbix
+└── Sales_Performance_Dashboard.pdf
 ```
 
 ---
 
 ## Future Improvements
-
 Potential enhancements for this project include:
-
 - Integration with cloud data warehouses
 - Automated data refresh pipelines
 - Advanced forecasting models
@@ -157,8 +188,7 @@ Potential enhancements for this project include:
 ---
 
 ## Author
-
-Hemavalli
+Hemavalli Mannemuddu
 
 ⭐ If you found this project useful, consider giving it a star!
 
