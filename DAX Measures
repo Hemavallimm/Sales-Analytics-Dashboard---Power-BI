@@ -1,0 +1,86 @@
+## DAX Measures Used in Project
+
+### Avg Selling Price
+Avg Selling Price =  
+DIVIDE(  
+    SUM('SalesData'[Sales]),  
+    SUM('SalesData'[Quantity]),  
+    0  
+)
+
+### Current Year Sales
+Current Year Sales =  
+CALCULATE(  
+    SUM('SalesData'[Sales]),  
+    YEAR('SalesData'[Date]) = YEAR(TODAY())  
+)
+
+### Last Refresh
+Last Refresh =  
+"Last Refresh: " & FORMAT(NOW(), "yyyy-MM-dd HH:mm:ss")
+
+### Last Year Sales
+Last Year Sales =  
+CALCULATE(  
+    SUM('SalesData'[Sales]),  
+    SAMEPERIODLASTYEAR('SalesData'[Date])  
+)
+
+### Profit
+Profit =  
+SUM('SalesData'[Sales]) - SUM('SalesData'[Cost])
+
+### Profit Margin %
+Profit Margin % =  
+DIVIDE(  
+    [Profit],  
+    SUM('SalesData'[Sales]),  
+    0  
+)
+
+### Region Profit Contribution %
+Region Profit Contribution % =  
+DIVIDE(  
+    [Profit],  
+    CALCULATE([Profit], ALL('SalesData'[Region])),  
+    0  
+)
+
+### Top Product
+Top Product =  
+VAR TopProduct =  
+    CALCULATE(  
+        MAX('SalesData'[Product]),  
+        FILTER(  
+            'SalesData',  
+            'SalesData'[Sales] = CALCULATE(MAX('SalesData'[Sales]))  
+        )  
+    )  
+RETURN  
+    TopProduct
+
+### Total Sales (All)
+Total Sales (All) =  
+CALCULATE(  
+    SUM('SalesData'[Sales]),  
+    ALL('SalesData')  
+)
+
+### Total Units Sold
+Total Units Sold =  
+SUM('SalesData'[Quantity])
+
+### YoY Growth %
+YoY Growth % =  
+DIVIDE(  
+    [Current Year Sales] - [Last Year Sales],  
+    [Last Year Sales],  
+    0  
+)
+
+### YTD Sales
+YTD Sales =  
+CALCULATE(  
+    SUM('SalesData'[Sales]),  
+    DATESYTD('SalesData'[Date])  
+)
