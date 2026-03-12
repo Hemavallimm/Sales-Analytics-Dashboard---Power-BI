@@ -170,10 +170,10 @@ These insights support data-driven decision making for sales strategy.
 Sales-Analytics-Dashboard
 │
 ├── Dax Measures
-├── dataset.csv
+├── Dataset.csv
 ├── README.md
-├── Sales_Performance_Dashboard.pbix
-└── Sales_Performance_Dashboard.pdf
+├── Sales_Performance_Dashboard.pbf
+└── Sales_Performance_Dashboard.pdix
 ```
 
 ---
